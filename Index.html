@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web Development Template</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.7;
+            color: #222;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 5%;
+            background: #101827;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            gap: 20px;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: #38bdf8;
+            font-size: 23px;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-list a:hover {
+            color: #38bdf8;
+        }
+
+        .rightNav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #search {
+            width: 150px;
+            padding: 9px 12px;
+            border: 1px solid #64748b;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .btn {
+            padding: 9px 16px;
+            border: none;
+            border-radius: 6px;
+            background: #0284c7;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #0369a1;
+        }
+
+        .firstsection {
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            padding: 80px 8%;
+        }
+
+        .secondsection {
+            background: #f1f5f9;
+            padding: 80px 8%;
+        }
+
+        .box-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1100px;
+            margin: auto;
+            gap: 40px;
+        }
+
+        .firstHalf {
+            width: 100%;
+        }
+
+        .text-big {
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+
+        .text-small {
+            font-size: 17px;
+            color: #475569;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 30px;
+        }
+
+        .section-Left {
+            flex-direction: row-reverse;
+        }
+
+        .paras {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .thumbnail {
+            flex: 1;
+            text-align: center;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            max-width: 430px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .sectionTag {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+
+        .sectionSubTag {
+            font-size: 17px;
+            color: #475569;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .courses {
+            background: #e0f2fe;
+            padding: 65px 8%;
+        }
+
+        .course-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 1100px;
+            margin: 35px auto 0;
+        }
+
+        .course-card {
+            flex: 1 1 250px;
+            padding: 25px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .course-card h3 {
+            margin-bottom: 12px;
+            color: #0369a1;
+        }
+
+        .text-footer {
+            text-align: center;
+            padding: 25px 15px;
+            background: #101827;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .nav-list {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .rightNav {
+                width: 100%;
+                justify-content: center;
+            }
+
+            #search {
+                width: 65%;
+            }
+
+            .firstsection,
+            .secondsection {
+                padding: 55px 7%;
+            }
+
+            .text-big {
+                font-size: 30px;
+            }
+
+            .section,
+            .section-Left {
+                flex-direction: column;
+                padding: 45px 7%;
+                gap: 25px;
+            }
+
+            .paras {
+                padding: 0;
+            }
+
+            .thumbnail img {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav class="navbar">
+        <a href="#home" class="logo">CodeLearn</a>
+
+        <ul class="nav-list">
+            <li><a href="#web">Web Technology</a></li>
+            <li><a href="#program">C Programming</a></li>
+            <li><a href="#java">Java</a></li>
+            <li><a href="#course">Courses</a></li>
+        </ul>
+
+        <form class="rightNav" id="searchForm">
+            <input type="text" id="search" placeholder="Tìm kiếm...">
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </nav>
+
+    <!-- Phần 1: Web Technology -->
+    <section class="firstsection" id="home">
+        <div class="box-main">
+            <div class="firstHalf">
+                <h1 class="text-big" id="web">
+                    Khám phá thế giới Web Technology
+                </h1>
+
+                <p class="text-small">
+                    HTML, CSS và JavaScript là những công nghệ nền tảng
+                    của phát triển web. HTML xây dựng cấu trúc nội dung,
+                    CSS tạo kiểu giao diện và JavaScript giúp trang web
+                    trở nên tương tác. Kết hợp các công nghệ này sẽ giúp
+                    bạn tạo ra những website hiện đại, thân thiện với
+                    người dùng và hiển thị tốt trên nhiều thiết bị.
+                </p>
+
+                <br>
+
+                <a href="#course" class="btn"
+                   style="display: inline-block; text-decoration: none;">
+                    Khám phá khóa học
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần 2: C Programming -->
+    <section class="secondsection">
+        <div class="box-main">
+            <div class="firstHalf">
+                <h2 class="text-big" id="program">
+                    C Programming
+                </h2>
+
+                <p class="text-small">
+                    C là ngôn ngữ lập trình thủ tục được phát triển bởi
+                    Dennis Ritchie. Ngôn ngữ này nổi bật với tốc độ xử lý,
+                    khả năng quản lý bộ nhớ và sự phù hợp trong lập trình
+                    hệ thống. Học C giúp người mới hiểu rõ biến, kiểu dữ
+                    liệu, vòng lặp, hàm, con trỏ và cách máy tính xử lý
+                    chương trình.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần 3: Java -->
+    <section class="section" id="java">
+        <div class="paras">
+            <h2 class="sectionTag">Java Programming</h2>
+
+            <p class="sectionSubTag">
+                Java là ngôn ngữ lập trình hướng đối tượng phổ biến,
+                được sử dụng để phát triển ứng dụng web, ứng dụng doanh
+                nghiệp và nhiều hệ thống khác. Mã Java thường được biên
+                dịch thành bytecode và chạy trên Java Virtual Machine
+                (JVM), giúp chương trình có thể hoạt động trên nhiều
+                nền tảng khác nhau.
+            </p>
+        </div>
+
+        <div class="thumbnail">
+            <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85"
+                alt="Laptop dùng để lập trình">
+        </div>
+    </section>
+
+    <!-- Phần 4: Hình ảnh bên trái, văn bản bên phải -->
+    <section class="section section-Left">
+        <div class="paras">
+            <h2 class="sectionTag">Learn by Doing</h2>
+
+            <p class="sectionSubTag">
+                Cách học lập trình hiệu quả là kết hợp kiến thức với
+                thực hành. Hãy bắt đầu từ những bài tập nhỏ, xây dựng
+                trang web cá nhân, luyện giải quyết vấn đề và từng bước
+                phát triển các dự án thực tế. Mỗi dự án sẽ giúp bạn
+                củng cố kiến thức và nâng cao kỹ năng lập trình.
+            </p>
+        </div>
+
+        <div class="thumbnail">
+            <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85"
+                alt="Học tập và làm việc với công nghệ">
+        </div>
+    </section>
+
+    <!-- Phần khóa học -->
+    <section class="courses" id="course">
+        <h2 class="text-big center">Khóa học nổi bật</h2>
+
+        <p class="text-small center">
+            Bắt đầu hành trình lập trình của bạn ngay hôm nay.
+        </p>
+
+        <div class="course-container">
+            <div class="course-card">
+                <h3>HTML & CSS</h3>
+                <p>
+                    Học cách xây dựng cấu trúc website, thiết kế giao diện
+                    và tạo bố cục responsive.
+                </p>
+            </div>
+
+            <div class="course-card">
+                <h3>C Programming</h3>
+                <p>
+                    Làm quen với tư duy lập trình, thuật toán, vòng lặp,
+                    hàm và cấu trúc dữ liệu cơ bản.
+                </p>
+            </div>
+
+            <div class="course-card">
+                <h3>Java Programming</h3>
+                <p>
+                    Tìm hiểu lập trình hướng đối tượng và xây dựng
+                    những ứng dụng Java đầu tiên.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-footer">
+        <p>Copyright © 2026 CodeLearn. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("searchForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const keyword = document.getElementById("search").value.trim();
+
+            if (keyword === "") {
+                alert("Vui lòng nhập nội dung cần tìm kiếm!");
+                return;
+            }
+
+            const sections = document.querySelectorAll("h1, h2, h3");
+            let found = false;
+
+            for (const section of sections) {
+                if (section.textContent.toLowerCase().includes(keyword.toLowerCase())) {
+                    section.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                alert("Không tìm thấy tiêu đề phù hợp với: " + keyword);
+            }
+        });
+    </script>
+
+</body>
+</html>
